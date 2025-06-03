@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Color Switch with Logo</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div class="container" id="container">
+    <div class="content">
+        <img src="logo.png" alt="Logo" class="logo"/>
+        <button id="toggleTheme">Switch Color</button>
+    </div>
+</div>
+
+<script>
+    const container = document.getElementById('container');
+    const button = document.getElementById('toggleTheme');
+
+    let dark = false;
+
+    button.addEventListener('click', () => {
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay';
+      container.appendChild(overlay);
+
+      setTimeout(() => {
+        dark = !dark;
+        container.classList.toggle('dark', dark);
+        overlay.remove();
+      }, 800); // match animation duration
+    });
+</script>
+</body>
+</html>
